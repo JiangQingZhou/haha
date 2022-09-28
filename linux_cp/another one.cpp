@@ -31,7 +31,7 @@ void dfs_dir(const char * str, const char * str2)
 
     while((ptr = readdir(dir)) != NULL)     // traverse the directory
     {
-        if (strncmp(ptr->d_name, ".", 1) == 0)  // skip the directory itself
+        if (strcmp(ptr->d_name, ".") == 0 || strcmp(ptr->d_name, "..") == 0)  // skip the directory itself
             continue;
 
         cat_path(path, str, ptr->d_name);
